@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+	<overlay id="markdown-copy-overlay" 
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script type="application/javascript" src="chrome://markdowncopy/content/markdown-copy.js"/>
+	<popup id="mailContext">
+		<menuitem 
+		id="markdown-copy-option" 
+		label="Markdown copy" 
+		oncommand="markdownCopy(event)"/>
+	</popup>
+</overlay>

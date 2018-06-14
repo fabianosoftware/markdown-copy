@@ -1,0 +1,3 @@
+content     markdowncopy    content/
+overlay     chrome://messenger/content/mailWindowOverlay.xul     chrome://markdowncopy/content/context-menu.xul
+
