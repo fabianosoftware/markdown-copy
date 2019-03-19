@@ -6,7 +6,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>markdowncopy@fabianosoftware.it</em:id>
     <em:name>Markdown Copy</em:name>
-    <em:version>1.0</em:version>
+    <em:version>1.2</em:version>
     <em:creator>Giuseppe Fabiano</em:creator>
    
     <em:targetApplication>

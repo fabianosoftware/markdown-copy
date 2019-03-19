@@ -60,7 +60,7 @@ function getMessageBodyAsText(msgHdr)
 	msgService.streamMessage(msgUri, syncStreamListener, null, null, false, "", true);
 	var contentType = new Object();
 	var data = msgHdr.folder.getMsgTextFromStream(
-		syncStreamListener.inputStream, msgHdr.Charset, 65536, 32768, false, true, contentType);
+		syncStreamListener.inputStream, msgHdr.Charset, 65536, 524288, false, true, contentType);
 	return data;
 }
 
@@ -113,10 +113,19 @@ function processMimeMessage(msgHdr)
 				if (mimeMessage.parts[i].name) {
 					attachments.push(mimeMessage.parts[i]);
 				}
+				// 2nd nested level
 				if (mimeMessage.parts[i].parts) {
 					for (var j = 0; j < mimeMessage.parts[i].parts.length; j++) {
 						if (mimeMessage.parts[i].parts[j].name) {
 							attachments.push(mimeMessage.parts[i].parts[j]);	
+						}
+						// 3rd nested level
+						if (mimeMessage.parts[i].parts[j].parts) {
+							for (var z = 0; z < mimeMessage.parts[i].parts[j].parts.length; z++) {
+								if (mimeMessage.parts[i].parts[j].parts[z].name) {
+									attachments.push(mimeMessage.parts[i].parts[j].parts[z]);	
+								}								
+							}
 						}
 					}
 				}				
